@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>testng.bug.showcase</groupId>
+  <artifactId>TestNG-1565</artifactId>
+  <version>1.0</version>
+  <packaging>jar</packaging>
+
+  <name>TestNG-1565 bug showcase</name>
+  <description>
+      Please run: 'mvn clean test' and see that 3 tests are mysteriously skipped, why?
+
+      Then change version 'testng.version' to 6.9.10 and run 'mvn clean test' again. All tests were executed correctly.
+  </description>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <testng.version>6.11</testng.version>
+    <!-- <testng.version>6.9.10</testng.version> DOWNGRADING TestNG FIXES THE PROBLEM -->
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
