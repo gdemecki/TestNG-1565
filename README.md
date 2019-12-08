@@ -1,5 +1,9 @@
 # TestNG-1565 bug showcase
 
+## UPDATE
+
+Since version `6.13.1` this bug is fixed, but unfortunately new ones have appeared. Time to finish with TestNG for good.
+
 ## Environment
 
 * TestNG 6.11
